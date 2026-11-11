@@ -6,7 +6,7 @@ A beginner-friendly Speech & TTS handbook with a **clear, step-by-step learning 
 
 1. [Prepare speech recordings](docs/data-preparation/index.md)
 2. [Understand phone-based vs character-based inputs](docs/text/index.md)
-3. [Learn forced alignment with MFA](docs/alignment/index.md)
+3. [Learn forced alignment with MFA](docs/alignment/index.md) — [step-by-step executable runbook](docs/alignment/run-mfa.md)
 4. [Train with a matching official recipe](docs/training/index.md):
    [FastSpeech2](docs/models/fastspeech2/index.md) · [Tacotron2](docs/models/tacotron2/index.md) · [VITS](docs/models/vits/index.md) · [F5-TTS](docs/models/f5-tts/index.md)
 5. [Understand HiFi-GAN vocoding](docs/vocoder/index.md)
@@ -26,9 +26,12 @@ Each page aims to answer: **What is this? Why does it matter? What do I need? Wh
 | [check_mels.py](scripts/check_mels.py) | Inspect .npy mel arrays |
 | [check_wav.py](scripts/check_wav.py) | Check output WAV integrity |
 | [audit_textgrids.py](scripts/audit_textgrids.py) | Verify that TextGrid files are present and readable |
+| [mfa_prepare.py](scripts/mfa_prepare.py) | Convert a safe manifest into an MFA WAV/TXT corpus |
+| [mfa_check_corpus.py](scripts/mfa_check_corpus.py) | Verify prepared MFA pairs |
+| [mfa_check_textgrids.py](scripts/mfa_check_textgrids.py) | Check TextGrid coverage and structure |
 | [publication_audit.py](scripts/publication_audit.py) | Flag likely private paths or unsafe file types |
 
-These are independent educational checks. **They are not replacements for the original training scripts** of upstream TTS frameworks.
+The complete MFA walkthrough includes [generic Slurm validation/alignment jobs](docs/alignment/run-mfa.md) and synthetic-data tests. These are independent educational checks. **They are not replacements for the original training scripts** of upstream TTS frameworks.
 
 ## Quick start
 
