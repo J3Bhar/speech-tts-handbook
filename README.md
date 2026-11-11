@@ -13,7 +13,7 @@ A beginner-friendly Speech & TTS handbook with a **clear, step-by-step learning 
 6. [Generate an unseen speech WAV](docs/inference/index.md)
 7. [Check common issues](docs/troubleshooting/index.md)
 
-Each page aims to answer: **What is this? Why does it matter? What do I need? What do I run or check? What could go wrong?**
+**For scholars:** [Quick revision and execution checklist](docs/revision/index.md) · [Model-specific Slurm launchers](slurm/README.md). The launchers print a dry run until you explicitly opt in and configure the official upstream recipe.\n\nEach page aims to answer: **What is this? Why does it matter? What do I need? What do I run or check? What could go wrong?**
 
 ## General-purpose helper scripts
 
