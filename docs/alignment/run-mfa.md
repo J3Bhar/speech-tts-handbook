@@ -4,7 +4,7 @@ title: Run a complete MFA alignment workflow
 
 # MFA: a beginner's runbook (version 3.x legacy workflow)
 
-These are **new universal templates**, not private research scripts. MFA 3.x uses four positional arguments for `mfa align`: corpus, dictionary, acoustic model and output directory. The official MFA documentation documents this syntax; the newer 3.4+ model format introduces alternatives, so **check your installed version**. <https://montreal-forced-aligner.readthedocs.io/en/latest/user_guide/workflows/alignment.html>
+These are **new universal templates**, not private research scripts. **Version note:** the validation command uses `--acoustic_model_path` on MFA 3.x. Confirm the syntax with your installed version's `mfa validate --help`. The positional forms may change in other versions. MFA 3.x uses four positional arguments for `mfa align`: corpus, dictionary, acoustic model and output directory. The official MFA documentation documents this syntax; the newer 3.4+ model format introduces alternatives, so **check your installed version**. <https://montreal-forced-aligner.readthedocs.io/en/latest/user_guide/workflows/alignment.html>
 
 ## 0. Prerequisites
 
@@ -52,7 +52,8 @@ On a local machine running MFA 3.x:
 
 ```bash
 mfa validate "path/to/new_mfa_corpus" \
-  "path/to/dictionary.dict" "path/to/acoustic_model"
+  "path/to/dictionary.dict" \
+  --acoustic_model_path "path/to/acoustic_model"
 ```
 
 Read the validator output and fix any unreadable files, speaker grouping errors or out-of-vocabulary (OOV) pronunciations. **Don't proceed until validation succeeds.**
