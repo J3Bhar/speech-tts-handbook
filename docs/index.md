@@ -18,7 +18,8 @@ title: Speech and TTS Beginner's Handbook
 | 4d | [F5-TTS](models/f5-tts/) | Flow-matching TTS |
 | 5 | [HiFi-GAN vocoding](vocoder/) | Convert mels into speech |
 | 6 | [Inference](inference/) | Use a saved checkpoint on new text |
-| 7 | [Troubleshooting](troubleshooting/) | Diagnose common problems |\n| 8 | [Quick revision sheet](revision/) | Recall key concepts and checks before running jobs |
+| 7 | [Troubleshooting](troubleshooting/) | Diagnose common problems |
+| 8 | [Quick revision sheet](revision/) | Recall key concepts and checks before running jobs |
 
 ## Example path conventions
 
