@@ -2,8 +2,6 @@
 
 A beginner-friendly Speech & TTS handbook with a **clear, step-by-step learning path from data preparation to model training, vocoding, inference, and evaluation**.
 
-This is a **universal educational repository**, not a publication of anyone's research, dataset, private server, checkpoint, experiment results, or unpublished model implementation.
-
 ## Follow the learning path
 
 1. [Prepare speech recordings](docs/data-preparation/index.md)
