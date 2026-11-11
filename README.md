@@ -58,4 +58,4 @@ The model implementations belong to their [original developers](docs/credits.md)
 
 ## GitHub Pages
 
-This repository is designed for `main` → `/docs` under **Settings → Pages**. GitHub Pages deployment must be enabled by an authorized repository administrator.
+https://j3bhar.github.io/speech-tts-handbook/
