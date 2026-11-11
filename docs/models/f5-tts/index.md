@@ -1,40 +1,50 @@
 ---
-title: F5-TTS
+title: F5-TTS — execution and revision
 ---
 
-# F5-TTS: beginner guide
+# F5-TTS: learn, train, revise
 
-**What is it?** F5-TTS is a flow-matching speech synthesis model commonly using reference audio and text.
+**Idea:** Flow-matching/reference-conditioned TTS. Use official reference-audio/text workflow and verify source audio and usage rights.
 
-## Step-by-step learning path
+## Before running
 
-1. Install a versioned **official implementation**: [upstream source](https://github.com/SWivid/F5-TTS).
-2. Prepare correctly paired and licensed audio/transcripts.
-3. Select phone-derived or written-character input **before** generating tokens.
-4. Inspect the selected recipe's training data format and configuration.
-5. Run preprocessing and a small smoke test, checking that losses are finite.
-6. Train with validation and preserve the matching config/checkpoint.
-7. Synthesize unseen sentences using the training frontend.
-8. Inspect audio quality and diagnose shortcomings before changing the model.
+1. Obtain licensed recordings and matching transcripts; audit them using [data preparation](../../data-preparation/).
+2. Choose a **phoneme-derived** or **character-based** input representation; do not mix the two. Read [tokenization](../../text/).
+3. Install a pinned version of the [official implementation](https://github.com/SWivid/F5-TTS) and read its exact training recipe.
+4. Prepare manifests, vocabulary, any durations and features **required by that recipe**.
+5. Run a tiny preprocessing/training batch and inspect the resulting logs.
+
+## Practical training sequence
+
+1. Use the official recipe's training script and configuration. Record the software version and **actual command** in your private experiment log.
+2. Choose a new output directory and confirm disk/GPU resources.
+3. Submit a reviewed training command locally or via [our generic Slurm wrapper](../../../slurm/f5-tts.sbatch).
+4. Check the first batches for valid features and finite losses before leaving the job running.
+5. Preserve the configuration, token vocabulary, best checkpoint, full resume state and logs in your private workspace.
+6. Run the installed model's official inference command on **unseen sentences** with the identical text frontend.
+7. Inspect the model's own waveform output.
 
 ```bash
-MODEL_DIR="path/to/f5-tts"            # Replace with your model installation
-DATA_DIR="path/to/dataset"           # Replace with an authorized dataset
-CONFIG="path/to/config.yaml"         # Replace with the recipe's real config
-OUT="path/to/training_outputs"        # Replace with a writable results folder
+export TTS_RECIPE_DIR="path/to/recipe"       # Replace with your installed recipe folder
+export TTS_RUN_SCRIPT="path/to/recipe/run.sh" # Replace with the actual upstream entrypoint
+# First check the Slurm wrapper and upstream command.
+sbatch slurm/f5-tts.sbatch
+# To enable execution after verifying your script, see slurm/README.md.
 ```
 
-**Important check:** Check the reference audio quality, transcript pairing and rights to the voice.
+### What should you see?
 
-**Typical output:** Use the official F5-TTS waveform inference pipeline.
+| Stage | Expected output | Troubleshooting |
+| --- | --- | --- |
+| Preparation | Input manifests, token list/features | Missing WAVs, unknown tokens, split overlap |
+| Smoke test | A short log with finite training loss | Environment, data shape, memory |
+| Full training | Checkpoints and validation logs | Divergence, overwrites, checkpoint mismatch |
+| Inference | Generated speech WAV | Missing words, odd timing, voice quality |
 
-### Problems that might occur
+## Five points for quick revision
 
-- **Missing input files:** review corpus manifest paths and permissions.
-- **Unknown symbols:** check tokenization and vocabulary.
-- **Unstable training:** inspect audio consistency, data shapes, loss and learning rate.
-- **Unexpected pronunciation or prosody:** verify frontend and decoding before retraining.
+**Architecture:** Flow-matching/reference-conditioned TTS. **Inputs:** paired speech/text with matching frontend. **Key challenge:** Use official reference-audio/text workflow and verify source audio and usage rights. **Training:** versioned official recipe. **Evaluation:** test short and long unseen text, listen, verify WAV properties.
 
-Command flags and configs vary by release. This page is educational, **not a claim to have trained every possible version**.
+**Scope:** These are reusable templates; model-specific preprocessing and training arguments **must come from the actual installed upstream version**. The public repository includes no private training recipe or research results.
 
-[Models](../../training/) · [Inference](../../inference/)
+[All model guides](../../training/) · [Inference](../../inference/) · [Troubleshooting](../../troubleshooting/) · [Official source](https://github.com/SWivid/F5-TTS)
