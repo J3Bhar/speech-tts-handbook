@@ -10,4 +10,4 @@ set -euo pipefail
 : "${MFA_ACOUSTIC:?Set MFA_ACOUSTIC to an MFA acoustic model path/name}"
 command -v mfa >/dev/null || { echo 'MFA is not on PATH; activate its environment'; exit 1; }
 # MFA 3.x legacy command. Verify 'mfa validate --help' for installed version.
-mfa validate "$MFA_CORPUS" "$MFA_DICT" "$MFA_ACOUSTIC"
+mfa validate "$MFA_CORPUS" "$MFA_DICT" --acoustic_model_path "$MFA_ACOUSTIC"
