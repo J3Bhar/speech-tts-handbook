@@ -10,7 +10,7 @@ title: Speech and TTS Beginner's Handbook
 | --- | --- | --- |
 | 1 | [Audio & transcript preparation](data-preparation/) | Correct inputs, splits, sample rates |
 | 2 | [Phone or character tokens](text/) | Frontends for different languages |
-| 3 | [MFA alignment](alignment/) | Word/phone boundaries and TextGrids |
+| 3 | [MFA alignment](alignment/) · [Run it step by step](alignment/run-mfa.html) | Word/phone boundaries and TextGrids |
 | 4 | [Model training](training/) | Choose a versioned official recipe |
 | 4a | [FastSpeech2](models/fastspeech2/) | Non-autoregressive mel prediction |
 | 4b | [Tacotron2](models/tacotron2/) | Attention-based mel prediction |
