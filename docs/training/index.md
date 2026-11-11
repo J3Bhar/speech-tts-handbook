@@ -25,3 +25,7 @@ title: TTS model training
 **Do not copy a Slurm script unchanged onto a different cluster.** Paths, GPUs, scheduler directives and software environments vary.
 
 [Models and official links](../credits.html) · [Inference](../inference/)
+
+## Practical execution and revision
+
+Each model page now links to a **dry-run-by-default Slurm wrapper**. The actual model training code, preprocessing requirements and command options still come from the **versioned official implementation**. [Open the scholar revision sheet](../revision/).
