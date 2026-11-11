@@ -6,6 +6,8 @@ title: Montreal Forced Aligner
 
 **What is it?** A forced aligner estimates the time when transcript words and dictionary phones occur in a recording. Many duration-supervised models use such timing information.
 
+[**Practical guide: prepare → check → validate → align → verify**](run-mfa.html)
+
 ## Workflow
 
 1. Prepare clean paired audio and transcripts.
