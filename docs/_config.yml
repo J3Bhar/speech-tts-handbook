@@ -1,0 +1,6 @@
+title: "Speech & TTS: Beginner's Handbook"
+description: "A practical, beginner-friendly learning path from speech recordings to model training, vocoding, and inference."
+theme: jekyll-theme-cayman
+url: "https://j3bhar.github.io"
+baseurl: "/speech-tts-handbook"
+markdown: kramdown
