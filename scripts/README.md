@@ -13,6 +13,11 @@ Run any helper with `--help` to see its input format. You must replace `path/to/
 | `check_mels.py` | Check mel array shapes |
 | `check_wav.py` | Check WAV header and signal |
 | `audit_textgrids.py` | Check for TextGrid files |
+| `mfa_prepare.py` | Make MFA WAV/TXT pairs from a TSV manifest |
+| `mfa_check_corpus.py` | Validate WAV/TXT pairs |
+| `mfa_check_textgrids.py` | Check expected TextGrids and phone tiers |
 | `publication_audit.py` | Flag potentially private files/paths |
+
+[**Follow the complete MFA runbook**](../docs/alignment/run-mfa.md) for the correct order and the Slurm templates.
 
 Always manually check outputs. Passing an automated test **does not** guarantee acoustic alignment, pronunciation, naturalness or permission to redistribute data.
